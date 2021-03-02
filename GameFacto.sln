@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFacto.TestProject.WebAPI", "GameFacto.TestProject.WebAPI\GameFacto.TestProject.WebAPI.csproj", "{8592739E-DA6F-431B-8FA0-F24D8DDC2E80}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8592739E-DA6F-431B-8FA0-F24D8DDC2E80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8592739E-DA6F-431B-8FA0-F24D8DDC2E80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8592739E-DA6F-431B-8FA0-F24D8DDC2E80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8592739E-DA6F-431B-8FA0-F24D8DDC2E80}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AE009277-8362-4467-AD0D-2C63BC80AEFE}
+	EndGlobalSection
+EndGlobal
