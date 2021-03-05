@@ -8,4 +8,8 @@
     <ProjectReference Include="..\GameFacto.TestProject.DataAccess\GameFacto.TestProject.DataAccess.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Concrete\" />
+  </ItemGroup>
+
 </Project>

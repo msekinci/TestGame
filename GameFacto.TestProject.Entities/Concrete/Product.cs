@@ -1,6 +1,8 @@
-﻿namespace GameFacto.TestProject.Entities.Concrete
+﻿using GameFacto.TestProject.Entities.Interfaces;
+
+namespace GameFacto.TestProject.Entities.Concrete
 {
-    public class Product
+    public class Product : IEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }

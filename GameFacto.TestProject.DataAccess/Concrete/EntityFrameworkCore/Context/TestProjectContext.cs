@@ -11,5 +11,8 @@ namespace GameFacto.TestProject.DataAccess.Concrete.EntityFrameworkCore.Context
             optionsBuilder.UseSqlServer("Server=Serkan-Ekinci;Database=GameFacto_TestProject; Trusted_Connection=True;");
             base.OnConfiguring(optionsBuilder);
         }
+
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }
