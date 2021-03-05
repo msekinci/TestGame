@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading.Tasks;
+using static GameFacto.TestProject.Business.StringInfos.Enums;
 
 namespace GameFacto.TestProject.WebAPI.Controllers
 {
@@ -63,7 +64,7 @@ namespace GameFacto.TestProject.WebAPI.Controllers
                 var result = await _userManager.CreateAsync(user, signUpModel.Password);
                 if (result.Succeeded)
                 {
-                    await _userManager.AddToRoleAsync(user, Enums.Roles.product_view.ToString());
+                    await _userManager.AddToRoleAsync(user, Roles.product_view.ToString());
                     return Created("", user);
                 }
                 else

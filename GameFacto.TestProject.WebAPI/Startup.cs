@@ -2,6 +2,7 @@ using GameFacto.TestProject.Business.Containers.MicrosoftIoC;
 using GameFacto.TestProject.Business.StringInfos;
 using GameFacto.TestProject.DataAccess.Concrete.EntityFrameworkCore.Context;
 using GameFacto.TestProject.Entities.Concrete;
+using GameFacto.TestProject.WebAPI.CustomFilters;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,6 +29,8 @@ namespace GameFacto.TestProject.WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDependencies();
+            services.AddAutoMapper(typeof(Startup));
+            services.AddScoped(typeof(ValidId<>));
 
             //Identity
             services.AddIdentity<AppUser, AppRole>(opt =>

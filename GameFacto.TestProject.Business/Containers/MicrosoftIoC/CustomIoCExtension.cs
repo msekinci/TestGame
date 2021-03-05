@@ -18,7 +18,10 @@ namespace GameFacto.TestProject.Business.Containers.MicrosoftIoC
 
 
             services.AddScoped<IProductDAL, EFProductRepository>();
-            services.AddScoped<IProductService, Prod>();
+            services.AddScoped<IProductService, ProductManager>();
+
+            services.AddScoped<ICategoryDAL, EFCategoryRepository>();
+            services.AddScoped<ICategoryService, CategoryManager>();
 
             services.AddScoped<IJwtService, JwtManager>();
             services.AddDbContext<TestProjectContext>();

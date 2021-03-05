@@ -1,6 +1,8 @@
 ﻿using GameFacto.TestProject.Business.Interfaces;
 using GameFacto.TestProject.DataAccess.Interfaces;
 using GameFacto.TestProject.Entities.Concrete;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace GameFacto.TestProject.Business.Containers.MicrosoftIoC
 {
@@ -12,6 +14,11 @@ namespace GameFacto.TestProject.Business.Containers.MicrosoftIoC
         {
             _genericDAL = genericDAL;
             _productDAL = productDAL;
+        }
+
+        public Task<List<Product>> GetAllByCategoryId(int categoryId)
+        {
+            return _productDAL.GetAllByCategoryId(categoryId);
         }
     }
 }

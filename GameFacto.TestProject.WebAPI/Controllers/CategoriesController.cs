@@ -4,8 +4,7 @@ namespace GameFacto.TestProject.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductController : ControllerBase
+    public class CategoriesController : ControllerBase
     {
-        
     }
 }
