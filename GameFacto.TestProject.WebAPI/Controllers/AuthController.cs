@@ -1,7 +1,7 @@
-﻿using GameFacto.TestProject.WebAPI.Context;
+﻿using GameFacto.TestProject.Business.StringInfos;
+using GameFacto.TestProject.Business.Tools.JWTTools;
+using GameFacto.TestProject.Entities.Concrete;
 using GameFacto.TestProject.WebAPI.Models;
-using GameFacto.TestProject.WebAPI.StringInfos;
-using GameFacto.TestProject.WebAPI.Tools;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace GameFacto.TestProject.WebAPI.Context
+namespace GameFacto.TestProject.Entities.Concrete
 {
     public class Category
     {

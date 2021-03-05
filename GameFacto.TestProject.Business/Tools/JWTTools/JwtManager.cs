@@ -1,5 +1,5 @@
-﻿using GameFacto.TestProject.WebAPI.Context;
-using GameFacto.TestProject.WebAPI.StringInfos;
+﻿using GameFacto.TestProject.Business.StringInfos;
+using GameFacto.TestProject.Entities.Concrete;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -8,7 +8,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace GameFacto.TestProject.WebAPI.Tools
+namespace GameFacto.TestProject.Business.Tools.JWTTools
 {
     public class JwtManager : IJwtService
     {

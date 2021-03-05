@@ -1,4 +1,4 @@
-﻿namespace GameFacto.TestProject.WebAPI.Tools
+﻿namespace GameFacto.TestProject.Business.Tools.JWTTools
 {
     public class JwtToken
     {

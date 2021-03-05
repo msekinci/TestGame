@@ -1,21 +1,18 @@
-using GameFacto.TestProject.WebAPI.Context;
-using GameFacto.TestProject.WebAPI.StringInfos;
-using GameFacto.TestProject.WebAPI.Tools;
+using GameFacto.TestProject.Business.Containers.MicrosoftIoC;
+using GameFacto.TestProject.Business.StringInfos;
+using GameFacto.TestProject.Business.Tools.JWTTools;
+using GameFacto.TestProject.DataAccess.Concrete.EntityFrameworkCore.Context;
+using GameFacto.TestProject.Entities.Concrete;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace GameFacto.TestProject.WebAPI
 {
@@ -31,10 +28,9 @@ namespace GameFacto.TestProject.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<JwtInfos>(Configuration.GetSection("JwtInfo"));
-            var jwtInfo = Configuration.GetSection("JwtInfo").Get<JwtInfos>();
-            services.AddScoped<IJwtService, JwtManager>();
-            services.AddDbContext<TestProjectContext>();
+            services.AddDependencies();
+
+            //Identity
             services.AddIdentity<AppUser, AppRole>(opt =>
             {
                 opt.Password.RequireNonAlphanumeric = false;
@@ -42,6 +38,9 @@ namespace GameFacto.TestProject.WebAPI
                 opt.Lockout.MaxFailedAccessAttempts = 5;
             }).AddEntityFrameworkStores<TestProjectContext>();
 
+            //JWT
+            services.Configure<JwtInfos>(Configuration.GetSection("JwtInfo"));
+            var jwtInfo = Configuration.GetSection("JwtInfo").Get<JwtInfos>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
             {
                 opt.RequireHttpsMetadata = false;
@@ -56,6 +55,7 @@ namespace GameFacto.TestProject.WebAPI
                     ClockSkew = TimeSpan.Zero
                 };
             });
+
             services.AddControllers();
         }
 

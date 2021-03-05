@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace GameFacto.TestProject.WebAPI.Context
+namespace GameFacto.TestProject.Entities.Concrete
 {
     public class AppUser : IdentityUser<int>
     {

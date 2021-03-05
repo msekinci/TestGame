@@ -1,4 +1,4 @@
-﻿using GameFacto.TestProject.WebAPI.Context;
+﻿using GameFacto.TestProject.Entities.Concrete;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 
@@ -15,7 +15,7 @@ namespace GameFacto.TestProject.WebAPI
             }
 
             var productViewRole = await roleManager.FindByNameAsync("product_view");
-            if (adminRole == null)
+            if (productViewRole == null)
             {
                 await roleManager.CreateAsync(new AppRole { Name = "product_view" });
             }

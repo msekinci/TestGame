@@ -1,4 +1,4 @@
-﻿namespace GameFacto.TestProject.WebAPI.StringInfos
+﻿namespace GameFacto.TestProject.Business.StringInfos
 {
     public class JwtInfos
     {

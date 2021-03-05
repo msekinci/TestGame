@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using GameFacto.TestProject.Entities.Concrete;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace GameFacto.TestProject.WebAPI.Context
+namespace GameFacto.TestProject.DataAccess.Concrete.EntityFrameworkCore.Context
 {
     public class TestProjectContext : IdentityDbContext<AppUser, AppRole, int>
     {
