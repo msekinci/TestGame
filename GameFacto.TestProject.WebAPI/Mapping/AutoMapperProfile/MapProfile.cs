@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
 using GameFacto.TestProject.Entities.Concrete;
 using GameFacto.TestProject.WebAPI.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GameFacto.TestProject.WebAPI.Mapping.AutoMapperProfile
 {
@@ -13,6 +10,13 @@ namespace GameFacto.TestProject.WebAPI.Mapping.AutoMapperProfile
         {
             CreateMap<ProductAddModel, Product>();
             CreateMap<Product, ProductAddModel>();
+
+            CreateMap<CategoryAddModel, Category>();
+            CreateMap<CategoryUpdateModel, Category>();
+            CreateMap<CategoryListModel, Category>();
+            CreateMap<Category, CategoryAddModel>();
+            CreateMap<Category, CategoryUpdateModel>();
+            CreateMap<Category, CategoryListModel>();
         }
     }
 }

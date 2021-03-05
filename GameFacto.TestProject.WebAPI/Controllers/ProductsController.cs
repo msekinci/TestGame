@@ -4,6 +4,7 @@ using GameFacto.TestProject.Business.Interfaces;
 using GameFacto.TestProject.Entities.Concrete;
 using GameFacto.TestProject.WebAPI.CustomFilters;
 using GameFacto.TestProject.WebAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace GameFacto.TestProject.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "admin")]
     public class ProductsController : BaseController
     {
         private readonly IProductService _productService;
@@ -25,6 +27,7 @@ namespace GameFacto.TestProject.WebAPI.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "product_view")]
         public async Task<IActionResult> GetAll()
         {
             var products = await _productService.GetAllAsync();
@@ -32,7 +35,8 @@ namespace GameFacto.TestProject.WebAPI.Controllers
         }
 
         [HttpGet("{name}/{id}")]
-        public async Task<IActionResult> GetAll(int? id, string name)
+        [Authorize(Roles = "product_view")]
+        public async Task<IActionResult> Get(int? id, string name)
         {
             if (id == null || await _productService.FindByIdAsyc((int)id) == null)
             {
