@@ -12,7 +12,7 @@ namespace GameFacto.TestProject.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "admin")]
+    [Authorize]
     public class CategoriesController : ControllerBase
     {
         private readonly ICategoryService _categoryService;
@@ -27,7 +27,7 @@ namespace GameFacto.TestProject.WebAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            return Ok(_mapper.Map<List<CategoryListModel>>(await _categoryService.GetAllAsync()));
+            return Ok(_mapper.Map<List<CategoryListModel>>(await _categoryService.GetAllWithSubCategoriesAsync(null)));
         }
 
         [HttpGet("{id}")]
@@ -35,6 +35,13 @@ namespace GameFacto.TestProject.WebAPI.Controllers
         public async Task<IActionResult> GetById(int id)
         {
             return Ok(_mapper.Map<CategoryListModel>(await _categoryService.FindByIdAsyc(id)));
+        }
+
+        [HttpGet("[action]/{id:int?}")]
+        public async Task<IActionResult> GetCategories(int? id)
+        {
+            var categories = await _categoryService.GetSelectedCategoryChildren(id);
+            return Ok(categories);
         }
 
         [HttpPost]

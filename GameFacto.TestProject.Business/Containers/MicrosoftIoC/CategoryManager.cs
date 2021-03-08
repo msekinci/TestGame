@@ -18,5 +18,10 @@ namespace GameFacto.TestProject.Business.Containers.MicrosoftIoC
         {
             return await _categoryDAL.GetAllWithSubCategoriesAsync(parentCommentId);
         }
+
+        public async Task<List<Category>> GetSelectedCategoryChildren(int? id)
+        {
+            return await _categoryDAL.GetSelectedCategoryChildren(id);
+        }
     }
 }

@@ -25,13 +25,16 @@ namespace GameFacto.TestProject.DataAccess.Concrete.EntityFrameworkCore.Reposito
 
         private async Task GetChildCategoriesAsync(int categoryId, List<int> categories)
         {
-            var category = await _context.Categories.Where(x => x.Id == categoryId).FirstOrDefaultAsync();
+            var category = await _context.Categories.Where(x => x.Id == categoryId).Include(x => x.SubCategories).FirstOrDefaultAsync();
             if (category != null)
             {
                 categories.Add(category.Id);
-                if (category.ParentCategoryId != null)
+                if (category.SubCategories != null)
                 {
-                    await GetChildCategoriesAsync((int)category.ParentCategoryId, categories);
+                    foreach (var item in category.SubCategories)
+                    {
+                        await GetChildCategoriesAsync(item.Id, categories);
+                    }
                 }
             }
         }

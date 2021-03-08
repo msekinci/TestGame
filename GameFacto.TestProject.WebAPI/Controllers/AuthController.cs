@@ -2,8 +2,10 @@
 using GameFacto.TestProject.Business.Tools.JWTTools;
 using GameFacto.TestProject.Entities.Concrete;
 using GameFacto.TestProject.WebAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using static GameFacto.TestProject.Business.StringInfos.Enums;
@@ -76,6 +78,24 @@ namespace GameFacto.TestProject.WebAPI.Controllers
             {
                 return BadRequest("Not valid model");
             }
+        }
+
+        [HttpGet("[action]")]
+        [Authorize]
+        public async Task<IActionResult> ActiveUser()
+        {
+            var name = User.Identity.Name;
+            var user = await _userManager.FindByNameAsync(name);
+            var roles = await _userManager.GetRolesAsync(user);
+
+            AppUserModel userModel = new AppUserModel
+            {
+                Name = user.Name,
+                Surname = user.Surname,
+                Roles = roles.ToList()
+            };
+
+            return Ok(userModel);
         }
     }
 }
