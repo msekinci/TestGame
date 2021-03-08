@@ -26,7 +26,7 @@ namespace GameFacto.TestProject.Application.Controllers
             {
                 UserName = username,
                 Password = password,
-                RememberMe = bool.Parse(rememberme)
+                RememberMe = string.IsNullOrWhiteSpace(rememberme) ? false : bool.Parse(rememberme)
             };
             return View(login);
         }

@@ -23,6 +23,12 @@ namespace GameFacto.TestProject.DataAccess.Concrete.EntityFrameworkCore.Reposito
             return result;
         }
 
+        public async Task<List<Category>> GetSelectedCategoryChildren(int? id)
+        {
+            int? categoryId = _context.Categories.Where(x => x.Id == id).FirstOrDefault()?.Id;
+            return await _context.Categories.Where(x => x.ParentCategoryId == categoryId || x.Id == id).Include(x => x.ParentCategory).ToListAsync();
+        }
+
         private async Task GetCategories(int? parentCategoryId, List<Category> result)
         {
             var categories = await _context.Categories.Where(x => x.ParentCategoryId == parentCategoryId).ToListAsync();

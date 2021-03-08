@@ -7,5 +7,6 @@ namespace GameFacto.TestProject.DataAccess.Interfaces
     public interface ICategoryDAL : IGenericDAL<Category>
     {
         Task<List<Category>> GetAllWithSubCategoriesAsync(int? parentCategoryId);
+        Task<List<Category>> GetSelectedCategoryChildren(int? id);
     }
 }

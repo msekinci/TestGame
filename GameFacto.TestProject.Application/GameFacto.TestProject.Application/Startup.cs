@@ -5,10 +5,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace GameFacto.TestProject.Application
 {
@@ -25,6 +21,8 @@ namespace GameFacto.TestProject.Application
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IAuthService, AuthManager>();
+            services.AddScoped<ICategoryApiService, CategoryManager>();
+            services.AddScoped<IProductService, ProductManager>();
             services.AddHttpContextAccessor();
             services.AddSession();
             services.AddControllersWithViews();

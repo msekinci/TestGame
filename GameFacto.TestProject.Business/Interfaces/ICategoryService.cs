@@ -7,5 +7,6 @@ namespace GameFacto.TestProject.Business.Interfaces
     public interface ICategoryService : IGenericService<Category>
     {
         Task<List<Category>> GetAllWithSubCategoriesAsync(int? parentCategoryId);
+        Task<List<Category>> GetSelectedCategoryChildren(int? id);
     }
 }

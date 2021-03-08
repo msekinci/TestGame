@@ -5,9 +5,9 @@ namespace GameFacto.TestProject.WebAPI.Models
 {
     public class CategoryListModel
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public int? ParentCategoryId { get; set; }
-        public Category ParentCategory { get; set; }
         public List<Category> SubCategories { get; set; }
     }
 }

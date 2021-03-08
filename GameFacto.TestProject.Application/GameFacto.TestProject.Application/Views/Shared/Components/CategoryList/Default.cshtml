@@ -1,0 +1,34 @@
+﻿@model List<CategoryList>
+<article class="filter-group">
+    <header class="card-header">
+        <a href="#" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" class="">
+            <i class="icon-control fa fa-chevron-down"></i>
+            <h6 class="title">All Categories</h6>
+        </a>
+    </header>
+    <div class="filter-content collapse show" id="collapse_1" style="">
+        <div class="card-body">
+            <form class="pb-3">
+            </form>
+
+            <ul class="list-menu" style="list-style:none">
+                <li><a asp-route-categoryId=>Tüm Kategoriler</a></li>
+                <hr />
+                @if (ViewBag.CategoryId != null)
+                {
+                    <li><a asp-route-categoryId=@ViewBag.CategoryId><strong>@ViewBag.CategoryName</strong> </a></li>
+                    <hr />
+                }
+
+                @foreach (var item in Model)
+                {
+                    if (item.Id != ViewBag.CategoryId)
+                    {
+                        <li><a asp-route-categoryId=@item.Id>@item.Name </a></li>
+                    }
+                }
+            </ul>
+
+        </div> <!-- card-body.// -->
+    </div>
+</article> <!-- filter-group  .// -->
